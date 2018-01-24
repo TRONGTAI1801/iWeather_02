@@ -148,7 +148,6 @@
     <issue id="UnlocalizedSms" severity="ignore" />
     <issue id="UnusedNamespace" severity="ignore" />
     <issue id="UnusedQuantity" severity="ignore" />
-    <issue id="UnusedResources" severity="ignore" />
     <issue id="UseCheckPermission" severity="ignore" />
     <issue id="UseCompoundDrawables" severity="ignore" />
     <issue id="UseSparseArrays" severity="ignore" />
