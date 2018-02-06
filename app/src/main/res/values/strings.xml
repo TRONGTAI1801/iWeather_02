@@ -4,10 +4,13 @@
     <string name="low">Low</string>
     <string name="hight">Hight</string>
     <string name="icon_weather">icon weather</string>
-    <string name="velocity_speed">Velocity Speed: </string>
+    <string name="wind_speed">Wind Speed: </string>
     <string name="humidity">Humidity: </string>
-    <string name="uv_index">UVIndex</string>
+    <string name="uv_index">UVIndex: </string>
     <string name="visibility">Visibility: </string>
     <string name="today">today</string>
     <string name="week">week</string>
+    <string name="Histories">Histories</string>
+    <string name="Exit">Exit</string>
+    <string name="Reset">Reset</string>
 </resources>

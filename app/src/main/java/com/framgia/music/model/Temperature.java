@@ -26,6 +26,10 @@ public class Temperature implements Parcelable {
         mTemperatureLow = in.readString();
     }
 
+    public void setTemperature(String temperature) {
+        mTemperature = temperature;
+    }
+
     public String getTemperature() {
         return mTemperature;
     }

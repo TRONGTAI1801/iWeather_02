@@ -25,12 +25,15 @@ import org.json.JSONObject;
  * Created by trong_tai on 01/02/2018.
  */
 
-public class FetchDataAsyncTask extends AsyncTask<String, LocationWeather, LocationWeather> {
+public class FetchDataAsyncTask extends AsyncTask<String, LocationWeather,  LocationWeather> {
 
     private static final int REAL_TIMEOUT = 10000;
     private static final int CONNECT_TIMEOUT = 15000;
-    private static final String TEMPERATUREHIGH = "temperatureHigh";
-    private static final String TEMPERATURELOW = "temperatureLow";
+    private JSONObject mJsonObjectLocation = null;
+    private LocationWeather mLocation = null;
+    private OnFetchData mOnFetchData = null;
+    private static final String TEMPERATUREHIGH = "temperatureMax";
+    private static final String TEMPERATURELOW = "temperatureMin";
     private static final String TEMPERATURE = "temperature";
     private static final String HUMIDITY = "humidity";
     private static final String VISIBILITY = "visibility";
@@ -44,13 +47,9 @@ public class FetchDataAsyncTask extends AsyncTask<String, LocationWeather, Locat
     private static final String ICON = "icon";
     private static final String LATITUDE = "latitude";
     private static final String LONGITUDE = "longitude";
-    private static final String TIMEZONE = "icon";
+    private static final String TIMEZONE = "timezone";
     private static final String GET = "GET";
     private static final String UTF = "UTF-8";
-
-    private JSONObject mJsonObjectLocation = null;
-    private LocationWeather mLocation = null;
-    private OnFetchData mOnFetchData = null;
 
     public FetchDataAsyncTask(OnFetchData onFetchData) {
         mOnFetchData = onFetchData;
@@ -116,7 +115,7 @@ public class FetchDataAsyncTask extends AsyncTask<String, LocationWeather, Locat
                     new UvIndex(mJsonObjectCurrently.getString(UV_INDEX)),
                     new TimeWeather(mJsonObjectCurrently.getString(TIME))));
             JSONObject mJsonObjectDaily = mJsonObjectLocation.getJSONObject(DAILY);
-            JSONArray mJsonArrayDaily = mJsonObjectDaily.getJSONArray(DAILY);
+            JSONArray mJsonArrayDaily = mJsonObjectDaily.getJSONArray(DATA);
             ArrayList<Weather> mWeatherDailyList = new ArrayList<>();
             for (int i = 0; i < mJsonArrayDaily.length(); i++) {
                 Weather weatherDaily = new Weather(
@@ -135,6 +134,7 @@ public class FetchDataAsyncTask extends AsyncTask<String, LocationWeather, Locat
             JSONObject mJsonObjectHourly = mJsonObjectLocation.getJSONObject(HOURLY);
             JSONArray mJsonArrayHourly = mJsonObjectHourly.getJSONArray(DATA);
             ArrayList<Weather> mWeatherHourlyList = new ArrayList<>();
+
             for (int i = 0; i < mJsonArrayHourly.length(); i++) {
                 Weather weatherHours = new Weather(
                         mJsonArrayHourly.getJSONObject(i).getString(ICON),
@@ -153,9 +153,9 @@ public class FetchDataAsyncTask extends AsyncTask<String, LocationWeather, Locat
                     mJsonObjectLocation.getString(TIMEZONE),
                     mCurrently, mDaily, mHourly);
         } catch (IOException e) {
-            mOnFetchData.onFetchDataError(e);
+            mOnFetchData.onFetchLocationWeatherError(e);
         } catch (JSONException e) {
-            mOnFetchData.onFetchDataError(e);
+            mOnFetchData.onFetchLocationWeatherError(e);
         }
         return mLocation;
     }

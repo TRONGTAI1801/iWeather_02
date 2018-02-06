@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/dp_100">
+
+    <TextView
+        android:id="@+id/text_dayOfWeek"
+        android:layout_centerVertical="true"
+        android:layout_marginLeft="@dimen/dp_10"
+        android:layout_marginStart="@dimen/dp_10"
+        android:layout_width="@dimen/dp_150"
+        android:layout_height="wrap_content"
+        />
+
+    <ImageView
+        android:id="@+id/image_iconWeather_week"
+        android:layout_centerInParent="true"
+        android:contentDescription="@string/icon_weather"
+        android:layout_toEndOf="@id/text_dayOfWeek"
+        android:layout_toRightOf="@id/text_dayOfWeek"
+        android:layout_marginLeft="@dimen/dp_5"
+        android:layout_marginStart="@dimen/dp_5"
+        android:layout_width="@dimen/dp_100"
+        android:layout_height="wrap_content"
+        />
+    <TextView
+        android:id="@+id/text_highTemperature_week"
+        android:layout_centerVertical="true"
+        android:layout_toEndOf="@id/image_iconWeather_week"
+        android:layout_toRightOf="@id/image_iconWeather_week"
+        android:layout_marginLeft="@dimen/dp_5"
+        android:layout_marginStart="@dimen/dp_5"
+        android:layout_width="@dimen/dp_70"
+        android:layout_height="wrap_content"
+        />
+    <TextView
+        android:id="@+id/text_lowTemperature_week"
+        android:layout_centerVertical="true"
+        android:layout_toEndOf="@id/text_highTemperature_week"
+        android:layout_toRightOf="@id/text_highTemperature_week"
+        android:layout_marginLeft="@dimen/dp_5"
+        android:layout_marginStart="@dimen/dp_5"
+        android:layout_width="@dimen/dp_70"
+        android:layout_height="wrap_content"
+        />
+
+</RelativeLayout>

@@ -7,7 +7,7 @@ import com.framgia.music.model.LocationWeather;
  */
 
 public interface OnFetchData {
-    void onFetchLocationWeatherSuccess(LocationWeather location);
-    void onFetchDataError(Throwable throwable);
-}
 
+    void onFetchLocationWeatherSuccess(LocationWeather location);
+    void onFetchLocationWeatherError(Throwable throwable);
+}

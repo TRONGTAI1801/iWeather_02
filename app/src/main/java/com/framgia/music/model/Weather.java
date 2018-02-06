@@ -71,10 +71,6 @@ public class Weather implements Parcelable {
         mVisibility = visibility;
     }
 
-    public UvIndex getUVIndex() {
-        return mUvIndex;
-    }
-
     public void setUVIndex(UvIndex uvIndex) {
         mUvIndex = uvIndex;
     }
